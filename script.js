@@ -18,6 +18,14 @@ addButtonEl.addEventListener("click",function(){
     inputFieldEl.value=""
 })
 
+window.addEventListener('keydown',function(e){
+    if(e.key == 'Enter'){
+    let inputVal = inputFieldEl.value;
+    push(shoppingListInDb,inputVal);
+    inputFieldEl.value=""
+    }
+})
+
 onValue(shoppingListInDb,function(snapshot){
     if(snapshot.exists()){
         let itemsArray = Object.entries(snapshot.val())
